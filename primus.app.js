@@ -12,7 +12,10 @@ var socket_port = process.env.SOCKET_PORT || 3001;
 var server = http.createServer().listen(socket_port, function() {
 	console.log("Primus started and listening on port " + socket_port);
 });
-var primus = new Primus(server, { transformer: 'engine.io' });  
+var primus = new Primus(server, { transformer: 
+	'engine.io' 
+	//'sockjs' 
+});  
 primus.save(__dirname +'/public/primus.js');
 
 app.use(express.static(__dirname + '/public'));
